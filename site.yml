@@ -1,0 +1,11 @@
+- name: Sample Playbook
+  hosts: "{{ target }}"
+  gather_facts: yes
+
+  become: true
+  become_user: root
+
+  roles:
+    - { role: SLES, when: "ansible_distribution == 'SLES'" }
+
+

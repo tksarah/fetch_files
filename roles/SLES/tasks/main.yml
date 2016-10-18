@@ -1,0 +1,7 @@
+- block:
+  - include_vars: files.yml
+
+  - name: Fetch files
+    fetch: src="{{ item.filename }}" dest=fetched
+    with_items:
+      - "{{ lists }}"
