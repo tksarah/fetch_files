@@ -1,11 +1,26 @@
-- name: Sample Playbook
+- name: Playbook for fetching files
   hosts: "{{ target }}"
   gather_facts: yes
 
   become: true
   become_user: root
 
+  vars_prompt:
+    - name: "target"
+      prompt: "Input target host"
+      default: all
+      private: no
+    - name: "inputfile"
+      prompt: "Input your file list"
+      private: no
+    - name: "savedir"
+      prompt: "Input a save directory"
+      default: fetched
+      private: no
+
+  pre_tasks:
+    - name: Pre setup (create lists for fetch)
+      local_action: raw ./tools/create_var.pl "{{ inputfile }}"
+
   roles:
     - { role: SLES, when: "ansible_distribution == 'SLES'" }
-
-

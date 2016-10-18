@@ -1,8 +1,6 @@
 lists:
-  - { filename: '/etc/hosts' }
-  - { filename: '/etc/passwd' }
-  - { filename: '/etc/shadow' }
-  - { filename: '/etc/group' }
   - { filename: '/etc/ssh/sshd_config' }
   - { filename: '/var/log/lastlog' }
   - { filename: '/usr/bin/python' }
+  - { filename: '/etc/nsswitch.conf' }
+  - { filename: '/etc/SuSE-release' }

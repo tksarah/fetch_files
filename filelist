@@ -1,7 +1,0 @@
-/etc/hosts
-/etc/passwd
-/etc/shadow
-/etc/group
-/etc/ssh/sshd_config
-/var/log/lastlog
-/usr/bin/python

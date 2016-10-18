@@ -1,0 +1,4 @@
+/etc/ssh/sshd_config
+/usr/bin/python
+/etc/nsswitch.conf
+/etc/SuSE-release

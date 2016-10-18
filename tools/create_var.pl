@@ -16,4 +16,4 @@ while (<R>){
 close(W);
 close(R);
 
-print "Created ./roles/SLES12/vars/files.yml \n";
+print "Created ./roles/SLES/vars/files.yml \n";
