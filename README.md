@@ -2,7 +2,9 @@
 ## Support
 - Ansible Host v2.1.2
 * Perl's JSON module
+
 ##  How to use
+
 ### Preparation
 
 * Ansible Inventory file ( host list of target )
