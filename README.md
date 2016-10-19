@@ -1,4 +1,5 @@
 # Playbook and Role for fetching files
+# fetch_file Role
 ## Support
 - Ansible Host v2.1.2
 * Perl's JSON module
@@ -59,3 +60,28 @@ PLAY [Playbook for fetching files] *********************************************
     `-- 192.168.0.151.csv
 
 ```
+
+# run_out_fetch Role
+### Preparation
+
+* Ansible Inventory file ( host list of target )
+* Command list to run
+
+Sample Command vars list
+```
+lists:
+  - { com: 'ls -l /etc' , ofile: 'ls_l' }
+  - { com: 'dpkg -l ' , ofile: 'dpkg_l' }
+  - { com: 'cat /etc/hosts' , ofile: 'cat_hosts' }
+
+```
+
+# Run
+
+```
+# ansible-playbook -i hosts site2.yml
+
+``` 
+
+# Result
+
