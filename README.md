@@ -40,3 +40,22 @@ PLAY [Playbook for fetching files] *********************************************
 
 ``` 
 
+# Result
+
+```
+# tree /tmp/savedir
+/tmp/savedir
+|-- 192.168.0.151
+|   |-- etc
+|   |   |-- SuSE-release
+|   |   |-- nsswitch.conf
+|   |   `-- ssh
+|   |       `-- sshd_config
+|   `-- usr
+|       `-- bin
+|           `-- python
+`-- facts
+    |-- 192.168.0.151
+    `-- 192.168.0.151.csv
+
+```
