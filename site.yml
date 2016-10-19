@@ -24,8 +24,10 @@
   pre_tasks:
     - name: Get ansible_facts 
       local_action: raw ansible -i hosts "{{ target }}" -m setup --tree "{{ facts_dir }}"
+      become: false
     - name: Pre setup (create lists for fetch)
       local_action: raw ./tools/create_var.pl "{{ inputfile }}"
+      become: false
 
   roles:
     - fetch_file
@@ -35,3 +37,4 @@
     - name: Convert JSON to csv 
       local_action: raw ./tools/conv.pl "{{ facts_dir }}"
       run_once: true
+      become: false
