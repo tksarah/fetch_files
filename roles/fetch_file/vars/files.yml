@@ -1,6 +1,6 @@
 lists:
   - { filename: '/etc/ssh/sshd_config' }
-  - { filename: '/var/log/lastlog' }
   - { filename: '/usr/bin/python' }
   - { filename: '/etc/nsswitch.conf' }
   - { filename: '/etc/SuSE-release' }
+  - { filename: '/etc/lsb-release' }

@@ -2,3 +2,4 @@
 /usr/bin/python
 /etc/nsswitch.conf
 /etc/SuSE-release
+/etc/lsb-release

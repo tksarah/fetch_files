@@ -1,6 +1,6 @@
 - name: Playbook for fetching files
   hosts: "{{ target }}"
-  gather_facts: yes
+  gather_facts: no
 
   become: true
   become_user: root
@@ -18,9 +18,20 @@
       default: fetched
       private: no
 
+  vars:
+    facts_dir: "{{ savedir }}/facts"
+
   pre_tasks:
+    - name: Get ansible_facts 
+      local_action: raw ansible -i hosts "{{ target }}" -m setup --tree "{{ facts_dir }}"
     - name: Pre setup (create lists for fetch)
       local_action: raw ./tools/create_var.pl "{{ inputfile }}"
 
   roles:
-    - { role: SLES, when: "ansible_distribution == 'SLES'" }
+    - fetch_file
+    #- { role: hoge, when: "ansible_distribution == 'hoge'" }
+
+  post_tasks:
+    - name: Convert JSON to csv 
+      local_action: raw ./tools/conv.pl "{{ facts_dir }}"
+      run_once: true

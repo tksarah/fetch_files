@@ -5,7 +5,7 @@ if($ARGV[0] eq ""){ print "Not found the file\n"; exit 1; }
 my $line;
 
 open(R,"$ARGV[0]");
-open(W,">./roles/SLES/vars/files.yml");
+open(W,">./roles/fetch_file/vars/files.yml");
 
 print W "lists:\n";
 while (<R>){
@@ -16,4 +16,4 @@ while (<R>){
 close(W);
 close(R);
 
-print "Created ./roles/SLES/vars/files.yml \n";
+print "Created ./roles/fetch_file/vars/files.yml \n";
