@@ -10,9 +10,11 @@
       prompt: "Input target host"
       default: all
       private: no
+
     - name: "inputfile"
       prompt: "Input your file list"
       private: no
+
     - name: "savedir"
       prompt: "Input a save directory"
       default: fetched
