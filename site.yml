@@ -15,6 +15,7 @@
   vars:
     facts_dir: "{{ savedir }}/facts"
     comget: "n"
+    json2csv: "n"
 
   pre_tasks:
     - name: Pre get ansible_facts 
@@ -38,3 +39,4 @@
       local_action: raw ./tools/conv.pl "{{ facts_dir }}"
       run_once: true
       become: false
+      when: json2csv == "y"
