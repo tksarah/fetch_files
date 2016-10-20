@@ -36,7 +36,7 @@ Sample of list file
 ## Run
 
 ```
-# ansible-playbook -i hosts site.yml
+# ansible-playbook -i hosts site.yml -e json2csv=y
 Input target host [all]: a.example.com
 Input your file list: sample.txt
 Input a save directory [fetched]: /tmp/savedir
