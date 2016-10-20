@@ -29,7 +29,7 @@ Sample list file
 
 ```
 
-# Run
+## Run
 
 ```
 # ansible-playbook -i hosts site.yml
@@ -41,7 +41,7 @@ PLAY [Playbook for fetching files] *********************************************
 
 ``` 
 
-# Result
+## Result
 
 ```
 # tree /tmp/savedir
@@ -62,6 +62,7 @@ PLAY [Playbook for fetching files] *********************************************
 ```
 
 # run_out_fetch Role
+##  How to use
 ### Preparation
 
 * Ansible Inventory file ( host list of target )
@@ -75,12 +76,14 @@ Sample Command vars list
 
 ```
 
-# Run
+## Run
+
+Run with -e comget=y ( extra valiable ) 
 
 ```
-# ansible-playbook -i hosts site2.yml
+# ansible-playbook -i hosts site2.yml -e comget="y"
 
 ``` 
 
-# Result
+## Result
 
