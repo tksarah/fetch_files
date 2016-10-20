@@ -2,6 +2,9 @@
 ## Support
 - Ansible Host v2.1.2
 * Perl's JSON module
+## Role Description
+### fetch_file
+### run_out_fetch
 
 # fetch_file Role
 ##  How to use
