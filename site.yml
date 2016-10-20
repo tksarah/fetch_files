@@ -15,6 +15,15 @@
       prompt: "Input your file list"
       private: no
 
+    - name: "inputcommand"
+      prompt: "Input your command list"
+      private: no
+
+    - name: "remtemp"
+      prompt: "Input remote temp directory "
+      default: /tmp/remtemp
+      private: no
+
     - name: "savedir"
       prompt: "Input a save directory"
       default: fetched
@@ -22,18 +31,24 @@
 
   vars:
     facts_dir: "{{ savedir }}/facts"
+    comget: "n"
 
   pre_tasks:
-    - name: Get ansible_facts 
+    - name: Pre get ansible_facts 
       local_action: raw ansible -i hosts "{{ target }}" -m setup --tree "{{ facts_dir }}"
       become: false
     - name: Pre setup (create lists for fetch)
-      local_action: raw ./tools/create_var.pl "{{ inputfile }}"
+      local_action: raw ./tools/create_var1.pl "{{ inputfile }}"
       become: false
+
+    - block:
+        - name: Pre get command list
+          local_action: raw ./tools/create_var2.pl "{{ inputcommand }}"
+      when: comget == "y"
 
   roles:
     - fetch_file
-    #- { role: hoge, when: "ansible_distribution == 'hoge'" }
+    - { role: run_out_fetch, when: "comget == 'y'" }
 
   post_tasks:
     - name: Convert JSON to csv 
