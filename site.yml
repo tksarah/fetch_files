@@ -12,11 +12,6 @@
     - { name: "remtemp" , prompt: "Input remote temp directory " , default: /tmp/remtemp , private: no }
     - { name: "savedir" , prompt: "Input a save directory" , default: fetched , private: no }
 
-  vars:
-    facts_dir: "{{ savedir }}/facts"
-    comget: "n"
-    json2csv: "n"
-
   pre_tasks:
     - name: Pre get ansible_facts 
       local_action: raw ansible -i hosts "{{ target }}" -m setup --tree "{{ facts_dir }}"

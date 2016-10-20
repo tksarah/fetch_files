@@ -1,9 +1,9 @@
-- name: run command and stdout
+- name: Run command and stdout
   raw: "{{ command }} > {{ savefile }}"
 
-- name: de fetch
+- name: Fetch "{{ savefile }}"
   fetch: src="{{ savefile }}" dest="{{ savedir }}"
 
-- name: de delete
+- name: Delete "{{ savefile }}"
   file: path="{{ savefile }}" state=absent
 
