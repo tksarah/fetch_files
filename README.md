@@ -69,10 +69,9 @@ PLAY [Playbook for fetching files] *********************************************
 
 Sample Command vars list
 ```
-lists:
-  - { com: 'ls -l /etc' , ofile: 'ls_l' }
-  - { com: 'dpkg -l ' , ofile: 'dpkg_l' }
-  - { com: 'cat /etc/hosts' , ofile: 'cat_hosts' }
+'ls -l /etc','ls_l'
+'hostid','hostid_out'
+'cat /etc/hosts','cat_hosts'
 
 ```
 
