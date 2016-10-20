@@ -6,28 +6,11 @@
   become_user: root
 
   vars_prompt:
-    - name: "target"
-      prompt: "Input target host"
-      default: all
-      private: no
-
-    - name: "inputfile"
-      prompt: "Input your file list"
-      private: no
-
-    - name: "inputcommand"
-      prompt: "Input your command list"
-      private: no
-
-    - name: "remtemp"
-      prompt: "Input remote temp directory "
-      default: /tmp/remtemp
-      private: no
-
-    - name: "savedir"
-      prompt: "Input a save directory"
-      default: fetched
-      private: no
+    - { name: "target" , prompt: "Input target host" ,  default: all , private: no }
+    - { name: "inputfile" , prompt: "Input your file list" , private: no }
+    - { name: "inputcommand" , prompt: "Input your command list" , private: no }
+    - { name: "remtemp" , prompt: "Input remote temp directory " , default: /tmp/remtemp , private: no }
+    - { name: "savedir" , prompt: "Input a save directory" , default: fetched , private: no }
 
   vars:
     facts_dir: "{{ savedir }}/facts"
