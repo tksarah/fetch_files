@@ -1,4 +1,0 @@
-lists:
-  - { com: 'ls -l /etc' , ofile: 'ls_l' }
-  - { com: 'dpkg -l' , ofile: 'dpkg_l' }
-  - { com: 'cat /etc/hosts' , ofile: 'cat_hosts' }

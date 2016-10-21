@@ -1,2 +1,2 @@
 ---
-facts_dir: "{{ savedir }}/facts"
+facts_dir: "{{ savedir }}/facts/"
