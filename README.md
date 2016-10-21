@@ -1,7 +1,7 @@
 # Playbook and Role for fetching files
 ## Support
 * Ansible Host v2.1.2
-* Perl's JSON module ( if you use "-e json2csv=y" )
+* ==Perl's JSON module==
 
 ## Role Description
 ### fetch_file
