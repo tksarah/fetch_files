@@ -4,6 +4,3 @@
 - name: Fetch "{{ savefile }}"
   fetch: src="{{ savefile }}" dest="{{ savedir }}"
 
-- name: Delete "{{ savefile }}"
-  file: path="{{ savefile }}" state=absent
-
