@@ -31,7 +31,7 @@
 
   post_tasks:
     - name: Convert JSON to csv 
-      local_action: raw ./tools/conv.py "{{ facts_dir }}"
+      local_action: raw ./tools/conv.py -i "{{ facts_dir }}"
       run_once: true
       become: false
       when: json2csv == "y"
