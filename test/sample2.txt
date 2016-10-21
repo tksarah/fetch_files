@@ -1,3 +1,0 @@
-'ls -l /etc','ls_l'
-'dpkg -l','dpkg_l'
-'cat /etc/hosts','cat_hosts'

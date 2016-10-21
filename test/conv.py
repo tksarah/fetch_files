@@ -6,8 +6,6 @@ import json
 import argparse
 import glob
 
-
-
 def main():
 
     def ptr_facts(arg):
@@ -38,7 +36,6 @@ def main():
 
         with open(csvfile,'w+') as fp:
             #print json.dumps(json_data, sort_keys = True, indent = 4)
-            #with open('192.168.175.202.csv','w+' as fw
     
             top = json_data['ansible_facts']
             datetime = top['ansible_date_time']
