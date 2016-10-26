@@ -31,15 +31,9 @@
     - { role: run_out_fetch, when: "comget == 'y'" }
 
   post_tasks:
-    - block:
-      - name: Find facts of Hosts 
-        find: paths="{{ facts_dir }}" patterns="^(\d+).(\d+).(\d+).(\d+)$" use_regex=True
-        register: findout
-      - name: Convert JSON to csv 
-        raw: ./tools/conv.py -i "{{ item.path }}"
-        with_items:
-          - '{{ findout.files }}'
+    - name: Convert JSON to csv 
+      raw: ./tools/conv.py -i "{{ facts_dir }}"
+      delegate_to: localhost
       run_once: true
       become: false
-      delegate_to: localhost
       when: json2csv == "y"
