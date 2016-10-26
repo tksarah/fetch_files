@@ -1,6 +1,6 @@
 # Playbook and Role for fetching files
 ## Support
-* Ansible Host v2.x.x < (tested v2.1.2)
+* Ansible Host v2.x.x < (tested by v2.1.2)
 * ~~Perl's JSON module~~
 
 ## Role Description
@@ -18,9 +18,8 @@
 Sample of inventory file
 ```
 [hoge]
-192.168.0.1 ansible_user=ubuntu ansible_ssh_private_key_file=./kura-key2
-192.168.0.2 ansible_user=root ansible_ssh_private_key_file=./cloud.key
-192.168.0.3 ansible_user=root ansible_pass=password
+192.168.175.202 ansible_user=root ansible_ssh_private_key_file=./cloud.key
+192.168.175.203 ansible_user=root ansible_pass=password
 ```
 
 Sample of list file
@@ -36,7 +35,6 @@ Sample of list file
 'ls -l /etc','ls_l'
 'hostid','hostid_out'
 'cat /etc/hosts','cat_hosts'
-
 ```
 
 ## Run
@@ -49,7 +47,13 @@ Input your command list [sample_comlist.txt]:
 Input remote temp directory  [/tmp/remtemp]:
 Input a save directory [fetched]:
 PLAY [Playbook for fetching files] *********************************************
-
+                           :
+                           :
+                           :
+                           :
+PLAY RECAP *********************************************************************
+192.168.175.202            : ok=19   changed=6    unreachable=0    failed=0
+192.168.175.203            : ok=17   changed=6    unreachable=0    failed=0
 ``` 
 
 ## Result
