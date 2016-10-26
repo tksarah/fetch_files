@@ -4,10 +4,10 @@
 * ~~Perl's JSON module~~
 
 ## Role Description
-### fetch_file
-### run_out_fetch
 
-# fetch_file Role
+* [fetch-files](https://galaxy.ansible.com/tksarah/fetch-files/)
+* [fetch-command-out](https://galaxy.ansible.com/tksarah/fetch-command-out/)
+
 ##  How to use
 
 ### Preparation
