@@ -12,23 +12,30 @@
     - { name: "remtemp" , prompt: "Input remote temp directory " , default: /tmp/remtemp , private: no }
     - { name: "savedir" , prompt: "Input a save directory" , default: fetched , private: no }
 
+  vars:
+    facts_dir: "{{ savedir }}/facts/"
+    comget: "n"
+    json2csv: "n"
+
   pre_tasks:
     - block:
         - name: Pre get ansible_facts 
           raw: ansible -i hosts "{{ target }}" -m setup --tree "{{ facts_dir }}"
         - name: Pre setup (create lists for fetch)
-          raw: ./tools/create_var1.pl "{{ inputfile }}"
+          raw: ./roles/tksarah.fetch-files/tools/create_vars.pl "{{ inputfile }}"
       become: false
       delegate_to: localhost
 
     - block:
         - name: Pre get command list
-          local_action: raw ./tools/create_var2.pl "{{ inputcommand }}"
+          raw: ./roles/tksarah.fetch-command-out/tools/create_vars.pl "{{ inputcommand }}"
+      become: false
+      delegate_to: localhost
       when: comget == "y"
 
   roles:
-    - fetch_file
-    - { role: run_out_fetch, when: "comget == 'y'" }
+    - tksarah.fetch-files
+    - { role: tksarah.fetch-command-out, when: "comget == 'y'" }
 
   post_tasks:
     - block:
@@ -38,8 +45,8 @@
       - name: Convert JSON to csv 
         raw: ./tools/conv.py -i "{{ item.path }}"
         with_items:
-          - '{{ findout.files }}'
+          - "{{ findout.files }}"
+      delegate_to: localhost
       run_once: true
       become: false
-      delegate_to: localhost
       when: json2csv == "y"

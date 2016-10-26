@@ -1,0 +1,5 @@
+- include_vars: files.yml
+- name: Fetch files
+  fetch: src="{{ item.filename }}" dest="{{ savedir }}"
+  with_items:
+    - "{{ lists }}"
