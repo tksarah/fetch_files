@@ -1,3 +1,6 @@
+C:\Windows\ja\WLXPGSS.SCR.mui
+C:\Users\takeshik\Desktop\README.txt
+C:\Program Files\R\R-3.2.4revised\README
 /etc/ssh/sshd_config
 /usr/bin/python
 /etc/nsswitch.conf

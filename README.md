@@ -102,9 +102,6 @@ fetched
   hosts: "{{ target }}"
   gather_facts: no
 
-  become: true
-  become_user: root
-
   vars_prompt:
     - { name: "target" , prompt: "Input target host" ,  default: all , private: no }
     - { name: "inputfile" , prompt: "Input your file list" , default: sample_filelist.txt , private: no }
