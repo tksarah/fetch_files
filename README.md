@@ -118,17 +118,13 @@ fetched
     json2csv: "n"
 
   pre_tasks:
-    - block:
-        - name: Pre get ansible_facts
-          raw: ansible -i hosts "{{ target }}" -m setup --tree "{{ facts_dir }}"
-        - name: Pre setup (create lists for fetch)
-          raw: ./roles/tksarah.fetch-files/tools/create_vars.pl "{{ inputfile }}"
+    - name: Pre get ansible_facts
+      raw: ansible -i hosts "{{ target }}" -m setup --tree "{{ facts_dir }}"
       become: false
       delegate_to: localhost
 
-    - block:
-        - name: Pre get command list
-          raw: ./roles/tksarah.fetch-command-out/tools/create_vars.pl "{{ inputcommand }}"
+    - name: Pre get command list
+      raw: ./roles/tksarah.fetch-command-out/tools/create_vars.pl "{{ inputcommand }}"
       become: false
       delegate_to: localhost
       when: comget == "y"
