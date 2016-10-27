@@ -19,7 +19,6 @@ Requirements
 ------------
 
 * Ansible version 2.0 < 
-* Perl 
 
 Role Variables
 --------------
@@ -30,18 +29,6 @@ Available variables are listed below,
 ```
 savedir: "fetched"
 ```
-
-**vars/files.yml:**
-
-```
-lists:
-  - { filename: '/etc/ssh/sshd_config' }
-  - { filename: '/var/log/syslog' }
-  - { filename: '/etc/nsswitch.conf' }
-```
-
-This vars file will be created with automatic when you run a playbook.
-All you have to do is create a text file as below.
 
 **Ex) sample_filelist.txt:**
 ```
@@ -71,15 +58,8 @@ Example Playbook
     - { name: "inputfile" , prompt: "Input your file list" , default: sample_filelist.txt , private: no }
     - { name: "savedir" , prompt: "Input a save directory" , default: fetched , private: no }
 
-  pre_tasks:
-    - block:
-        - name: Pre setup (create lists for fetch)
-          local_action: raw ./roles/tksarah.fetch-files/tools/create_vars.pl "{{ inputfile }}"
-      become: false
-
   roles:
     - tksarah.fetch-files
-
 ```
 
 License
