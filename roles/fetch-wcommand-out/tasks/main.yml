@@ -1,0 +1,14 @@
+- block:
+    - name: Create temp directory
+      win_file: path="{{ remtemp }}" state=directory
+
+    - include: run_out_fetch.yml
+      vars:
+        command: "{{ lookup('csvfile', '{{ item }} file={{ inputcommand }} delimiter=, col=1') }}"
+        savefile: "{{ remtemp }}\\{{ lookup('csvfile', '{{ item }} file={{ inputcommand }} delimiter=, col=2') }}"
+      with_lines:
+        - awk -F, '{ print $1 }' "{{ inputcommand }}"
+
+  always:
+      - name: Delete remote temp directory
+        win_file: path="{{ remtemp }}" state=absent
