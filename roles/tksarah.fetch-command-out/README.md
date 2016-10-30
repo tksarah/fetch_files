@@ -29,7 +29,6 @@ Available variables are listed below,
 ```
 savedir: "fetched"
 remtemp: "/tmp/remtemp"
-inputcommand: "sample_comlist.txt"
 ```
 
 All you have to do is create a text file as below.
