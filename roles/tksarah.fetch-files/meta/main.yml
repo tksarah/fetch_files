@@ -154,9 +154,6 @@ galaxy_info:
     versions:
   #  - all
     - 2012R2
-    - 2012
-    - 2008 (PowerShell 3.0<)
-    - 7 (PowerShell 3.0<)
   #- name: SmartOS
   #  versions:
   #  - all

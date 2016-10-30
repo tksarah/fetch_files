@@ -1,4 +1,0 @@
-lists:
-  - { com: 'ls -l /etc' , ofile: 'ls_l' }
-  - { com: 'hostid' , ofile: 'hostid_out' }
-  - { com: 'cat /etc/hosts' , ofile: 'cat_hosts' }

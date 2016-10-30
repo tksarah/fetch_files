@@ -1,44 +1,38 @@
-- name: Playbook for fetching files
+- name: Playbook for fetching server information
   hosts: "{{ target }}"
   gather_facts: no
-
-  #become: true
-  #become_user: root
 
   vars_prompt:
     - { name: "target" , prompt: "Input target host" ,  default: all , private: no }
     - { name: "inputfile" , prompt: "Input your file list" , default: sample_filelist.txt , private: no }
     - { name: "inputcommand" , prompt: "Input your command list" , default: sample_comlist.txt , private: no }
     - { name: "remtemp" , prompt: "Input remote temp directory " , default: /tmp/remtemp , private: no }
+    #- { name: "remtemp" , prompt: "Input remote temp directory " , default: "C:\\ansible_remtemp" , private: no }
     - { name: "savedir" , prompt: "Input a save directory" , default: fetched , private: no }
 
   vars:
     facts_dir: "{{ savedir }}/facts/"
     comget: "n"
     json2csv: "n"
+    #win: "n"
 
   pre_tasks:
     - name: Pre get ansible_facts 
-      raw: ansible -i hosts "{{ target }}" -m setup --tree "{{ facts_dir }}"
+      raw: ansible -i "{{ inventory_file }}"  "{{ target }}" -m setup --tree "{{ facts_dir }}"
       become: false
       delegate_to: localhost
-
-    - name: Pre get command list
-      raw: ./roles/tksarah.fetch-command-out/tools/create_vars.pl "{{ inputcommand }}"
-      become: false
-      delegate_to: localhost
-      when: comget == "y"
 
   roles:
     - tksarah.fetch-files
     - { role: tksarah.fetch-command-out, when: "comget == 'y'" }
+    #- { role: tksarah.fetch-wcommand-out, when: "win == 'y'" }
 
   post_tasks:
     - block:
       - name: Find facts of Hosts 
         find: paths="{{ facts_dir }}" patterns="^(\d+).(\d+).(\d+).(\d+)$" use_regex=True
         register: findout
-      - name: Convert JSON to csv 
+      - name: Convert JSON to CSV for facts
         raw: ./tools/conv.py -i "{{ item.path }}"
         with_items:
           - "{{ findout.files }}"
