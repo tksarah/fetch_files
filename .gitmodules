@@ -1,0 +1,9 @@
+[submodule "roles/tksarah.fetch-files"]
+	path = roles/tksarah.fetch-files
+	url = https://github.com/tksarah/fetch-files.git
+[submodule "roles/tksarah.fetch-command-out"]
+	path = roles/tksarah.fetch-command-out
+	url = https://github.com/tksarah/fetch-command-out.git
+[submodule "roles/tksarah.fetch-wcommand-out"]
+	path = roles/tksarah.fetch-wcommand-out
+	url = https://github.com/tksarah/fetch-wcommand-out.git
