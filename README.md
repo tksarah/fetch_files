@@ -32,9 +32,9 @@ Sample of list file
 /etc/lsb-release
 
 # more sample_comlist.txt
-'ls -l /etc','ls_l'
-'hostid','hostid_out'
-'cat /etc/hosts','cat_hosts'
+1,'ls -l /etc','ls_l'
+2,'hostid','hostid_out'
+3,'cat /etc/hosts','cat_hosts'
 ```
 
 ## Run

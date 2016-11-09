@@ -1,4 +1,0 @@
-- name: Fetch files
-  fetch: src="{{ item }}" dest="{{ savedir }}"
-  with_lines:
-    - cat "{{ inputfile }}"
