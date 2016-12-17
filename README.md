@@ -7,6 +7,7 @@
 
 * [fetch-files](https://galaxy.ansible.com/tksarah/fetch-files/)
 * [fetch-command-out](https://galaxy.ansible.com/tksarah/fetch-command-out/)
+* [fetch-wcommand-out](https://galaxy.ansible.com/tksarah/fetch-wcommand-out/)
 
 ##  How to use
 
